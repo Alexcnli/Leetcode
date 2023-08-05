@@ -1,0 +1,34 @@
+class Solution {
+public:
+    int removeElement(vector<int>& nums, int val) {
+        int ans = 0;
+        if(nums.size() == 0){
+            return 0;
+        }
+        else for(int k = 0; k < nums.size(); k++){
+            if(nums[k] != val) ans++;
+
+        }
+        if(ans == nums.size()) return ans;
+        else if(ans == 0) return 0;
+        else{
+            int j = 0;
+            while( j < ans){
+                if(nums[j] != val){
+                    j++;
+                    }
+                else{
+                    for(int i = j; i < nums.size()-1; i++){
+                        nums[i] = nums[i+1];
+                    }
+                    std::cout << "\n";                        
+                    for (const int& num : nums) {
+                        std::cout << num << " ";
+                    }  
+                    
+                }
+            }
+        }
+        return ans;
+    }
+};
