@@ -1,0 +1,11 @@
+class Solution {
+public:
+    int mySqrt(int x) {
+        long y = 0;
+        while(y*y <= x){
+            if(y*y == x) return y;
+            else y++;
+        }
+        return y-1;
+    }
+};
