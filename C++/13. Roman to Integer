@@ -1,0 +1,20 @@
+class Solution {
+public:
+    int romanToInt(string s) {
+        map<char, int> romanNum;
+        romanNum = {{'I', 1}, {'V', 5}, {'X', 10}, {'L', 50}, {'C', 100}, {'D', 500}, {'M', 1000}};
+        int x = s.size();
+        int ans = 0, last = 0;
+        while(x > 0){
+            for (const auto& pair : romanNum) {
+                if(s[x-1] == pair.first){
+                    if(pair.second >= last) ans = ans + pair.second;
+                    else ans = ans - pair.second;
+                    last = pair.second;
+                }
+            }
+            x--;
+        }
+        return ans;
+    }
+};
