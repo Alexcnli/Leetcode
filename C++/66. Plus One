@@ -1,0 +1,35 @@
+class Solution {
+public:
+    vector<int> plusOne(vector<int>& digits) {
+        int check = digits.size()-1;
+        int count = 0;
+        for(int i = 0; i < check+1; i++){
+            if(digits[i] == 9)
+            count++;
+        }
+        if(count > check){
+            std::vector<int> nums = {1};
+            int i = 0;
+            while(i<=check){
+                nums.push_back(0);
+                i++;
+            }
+            return nums;
+        }
+        else if(digits[check] != 9){
+            digits[check]++;
+            return digits;
+        }
+        else{
+            while(check >= 0){
+                if(digits[check] !=9){
+                   digits[check]++; 
+                   break;
+                }
+                else digits[check] = 0;
+                check--;
+            }
+            return digits;
+        }
+    }
+};
