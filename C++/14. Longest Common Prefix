@@ -1,0 +1,23 @@
+class Solution {
+public:
+    string longestCommonPrefix(vector<string>& strs) {
+        string ans = "";
+        string shortest = "";
+        if (!strs.empty()) {
+            shortest = strs[0];
+            for (const std::string& str : strs) {
+                if (str.length() < shortest.length()) {
+                    shortest = str;
+                }
+            }
+        }
+
+        for (int i = 0; i < shortest.length(); ++i) {
+            for (const std::string& str : strs) {
+                if(str[i] != shortest[i]) return ans;
+            }
+            ans += shortest[i];
+        }
+        return ans;
+    }
+};
