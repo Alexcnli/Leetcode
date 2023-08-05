@@ -1,0 +1,19 @@
+class Solution {
+public:
+    string convertToTitle(int columnNumber) {
+        string s;
+        int temp = columnNumber;
+        while(1){
+            if(temp%26 == 0){
+                s.insert(0, 1, 'Z'); 
+                temp = temp/26 - 1 ;
+            }
+            else{
+                s.insert(0, 1, temp%26+64);
+                temp = (temp - temp%26)/26;
+            }
+            if(temp <= 0) break;
+        }
+        return s;
+    }
+};
